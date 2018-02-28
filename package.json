@@ -1,0 +1,15 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server"
+  },
+  "keywords": [],
+  "author": "Samokhin Max",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
