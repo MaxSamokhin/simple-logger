@@ -1,16 +1,44 @@
 ;(function () {
 
-    const DEFAULT_MSG = 'Press the button';
-    const CLICK_MSG = 'Not bad';
+    let content = document.getElementsByClassName('content')[0];
 
-    let msg = document.getElementsByClassName('message')[0];
-    let flagClick = false;
+    let getData = function () {
+        return window.windowHttp.FetchGet('/req').then((res) => {
+            let request = '';
+            res.data.forEach(elem => {
 
-    document.getElementsByClassName('button')[0].addEventListener('click', (event) => {
+                request += Object.entries(elem).reduce((res, elem) => {
+                    res += elem[0] + ': ' + elem[1] + '\n';
+                    return res;
+                }, '\n');
 
-        msg.textContent = flagClick ? DEFAULT_MSG : CLICK_MSG;
-        flagClick = !flagClick;
+            });
+            return request ;
+        });
+    };
+
+
+    let render = function (data) {
+        console.clear();
+        console.log(data);
+    };
+
+
+    document.getElementsByClassName('show_req')[0]
+        .addEventListener('click', (event) => {
+
+        getData().then(elem => render(elem));
 
     }, true);
+
+
+    document.getElementsByClassName('clear_req')[0]
+        .addEventListener('click', (event) => {
+
+            window.windowHttp.FetchGet('/clear').then((res) => {});
+            render('clear');
+
+    }, true);
+
 
 }());

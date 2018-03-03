@@ -2,14 +2,15 @@
   "name": "playground",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "node server/server"
+    "start": "ts-node server/server"
   },
   "keywords": [],
   "author": "Samokhin Max",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "path": "^0.12.7"
   }
 }
