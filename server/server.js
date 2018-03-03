@@ -18,9 +18,6 @@ app.post('/req', (req, res) => {
 
 
 app.get('/req', (req, res) => {
-
-    console.log(req);
-
     requests.push(req.headers);
     res.json({data: requests});
 });

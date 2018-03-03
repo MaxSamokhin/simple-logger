@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node server/server"
+    "start": "node server/server"
   },
   "keywords": [],
   "author": "Samokhin Max",
