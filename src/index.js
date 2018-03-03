@@ -1,7 +1,5 @@
 ;(function () {
 
-    let content = document.getElementsByClassName('content')[0];
-
     let getData = function () {
         return window.windowHttp.FetchGet('/req').then((res) => {
             let request = '';
