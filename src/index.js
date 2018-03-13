@@ -3,7 +3,7 @@
     let getData = function () {
         return window.windowHttp.FetchGet('/req').then((res) => {
             let request = '';
-            res.data.forEach(elem => {
+            res.header.forEach(elem => {
 
                 request += Object.entries(elem).reduce((res, elem) => {
                     res += elem[0] + ': ' + elem[1] + '\n';
